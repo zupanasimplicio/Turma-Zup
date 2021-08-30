@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UsuarioService {
@@ -18,6 +19,15 @@ public class UsuarioService {
 
     public List<UsuarioModel> exibirTodosContatos(){
         return (List<UsuarioModel>) usuarioRepository.findAll();
+    }
+
+    public UsuarioModel buscarUsuarioPorEmail(String email) {
+        Optional<UsuarioModel> usuOptional = usuarioRepository.findByEmail(email);
+
+        if (usuOptional.isPresent()) {
+            return usuOptional.get();
+        }
+        return null;
     }
 
 }
