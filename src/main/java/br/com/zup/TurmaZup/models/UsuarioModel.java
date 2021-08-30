@@ -11,13 +11,15 @@ import java.util.List;
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nome;
-    @Column(unique = true, nullable = false)
     private String sobrenome;
+    @Column(unique = true, nullable = false)
     private String email;
     private String cargo;
 
-    @OneToMany(mappedBy = "usuarios")
-    private List<UsuarioModel> usuarioModels;
+    @OneToMany(mappedBy = "usuarioOrigem")
+    private List<MensagemModel> mensagensRecebidas;
+    @OneToMany(mappedBy = "usuarioDestino")
+    private List<MensagemModel> mensagensEnviadas;
 
 
     public UsuarioModel() {
@@ -62,5 +64,21 @@ import java.util.List;
 
     public void setCargo(String cargo) {
         this.cargo = cargo;
+    }
+
+    public List<MensagemModel> getMensagensRecebidas() {
+        return mensagensRecebidas;
+    }
+
+    public void setMensagensRecebidas(List<MensagemModel> mensagensRecebidas) {
+        this.mensagensRecebidas = mensagensRecebidas;
+    }
+
+    public List<MensagemModel> getMensagensEnviadas() {
+        return mensagensEnviadas;
+    }
+
+    public void setMensagensEnviadas(List<MensagemModel> mensagensEnviadas) {
+        this.mensagensEnviadas = mensagensEnviadas;
     }
 }
