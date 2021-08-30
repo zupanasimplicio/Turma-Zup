@@ -7,7 +7,7 @@ import org.springframework.data.repository.CrudRepository;
 import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;
 
-public interface MensagemRepositories extends CrudRepository<MensagemModel,Integer> {
+public interface MensagemRepository extends CrudRepository<MensagemModel,Integer> {
     List<MensagemModel> findAllByVisualizado(boolean visualizado);
     List<MensagemModel> findAllByUsuarioDestinoEmailContains(String email);
 
