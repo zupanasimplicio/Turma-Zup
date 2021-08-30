@@ -1,12 +1,35 @@
 package br.com.zup.TurmaZup.models;
 
-public class ChatModel {
+import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
+@Entity(name = "mensagens")
+public class MensagemModel {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private String mensagem;
-    private String ContatoModelorigem;
-    private String ContatoModelDestino;
+    @ManyToOne
+    @JoinColumn(name = "usuario_origem_id",nullable = false)
+    private UsuarioModel usuarioOrigem;
+    @ManyToOne
+    @JoinColumn(name = "usuario_destino_id",nullable = false)
+    private UsuarioModel usuarioDestino;
+    private boolean visualizado;
+    private LocalDateTime dataDeEnvio;
 
-    public ChatModel() {
+    public MensagemModel() {
+
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getMensagem() {
@@ -17,19 +40,35 @@ public class ChatModel {
         this.mensagem = mensagem;
     }
 
-    public String getContatoModelorigem() {
-        return ContatoModelorigem;
+    public UsuarioModel getUsuarioOrigem() {
+        return usuarioOrigem;
     }
 
-    public void setContatoModelorigem(String contatoModelorigem) {
-        ContatoModelorigem = contatoModelorigem;
+    public void setUsuarioOrigem(UsuarioModel usuarioOrigem) {
+        this.usuarioOrigem = usuarioOrigem;
     }
 
-    public String getContatoModelDestino() {
-        return ContatoModelDestino;
+    public UsuarioModel getUsuarioDestino() {
+        return usuarioDestino;
     }
 
-    public void setContatoModelDestino(String contatoModelDestino) {
-        ContatoModelDestino = contatoModelDestino;
+    public void setUsuarioDestino(UsuarioModel usuarioDestino) {
+        this.usuarioDestino = usuarioDestino;
+    }
+
+    public boolean isVisualizado() {
+        return visualizado;
+    }
+
+    public void setVisualizado(boolean visualizado) {
+        this.visualizado = visualizado;
+    }
+
+    public LocalDateTime getDataDeEnvio() {
+        return dataDeEnvio;
+    }
+
+    public void setDataDeEnvio(LocalDateTime dataDeEnvio) {
+        this.dataDeEnvio = dataDeEnvio;
     }
 }
