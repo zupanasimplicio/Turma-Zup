@@ -2,7 +2,7 @@ package br.com.zup.TurmaZup.controllers;
 
 import br.com.zup.TurmaZup.dtos.ChatDto;
 import br.com.zup.TurmaZup.dtos.MensagemDto;
-import br.com.zup.TurmaZup.dtos.MensagemEmResumoDto;
+import br.com.zup.TurmaZup.dtos.MensagemResumoDto;
 import br.com.zup.TurmaZup.models.MensagemModel;
 import br.com.zup.TurmaZup.services.MensagemService;
 import org.modelmapper.ModelMapper;
@@ -31,11 +31,11 @@ public class ChatController {
     }
 
     @GetMapping("/usuario/perfil/{emailUsuario}")
-    public List<MensagemEmResumoDto.MensagemResumoDto> pesquisarMensagens(@PathVariable String emailUsuario,
-                                                                          @RequestParam(required = false) Boolean visualizado){
+    public List<MensagemResumoDto> pesquisarMensagens(@PathVariable String emailUsuario,
+                                                      @RequestParam(required = false) Boolean visualizado){
         List<MensagemModel> mensagens = mensagemService.filtrarMengensPor(emailUsuario, visualizado);
-        List<MensagemEmResumoDto.MensagemResumoDto> mensagemResumoDtos = mensagens.stream()
-                .map(mensagem -> modelMapper.map(mensagem, MensagemEmResumoDto.MensagemResumoDto.class)).collect(Collectors.toList());
+        List<MensagemResumoDto> mensagemResumoDtos = mensagens.stream()
+                .map(mensagem -> modelMapper.map(mensagem, MensagemResumoDto.class)).collect(Collectors.toList());
         return mensagemResumoDtos;
     }
 

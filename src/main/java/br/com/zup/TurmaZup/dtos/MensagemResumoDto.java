@@ -3,7 +3,7 @@ package br.com.zup.TurmaZup.dtos;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-class MensagemResumoDto {
+public class MensagemResumoDto {
 
     private int id;
     private String mensagem;
