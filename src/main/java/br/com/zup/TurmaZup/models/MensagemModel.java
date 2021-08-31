@@ -12,10 +12,10 @@ public class MensagemModel {
     private int id;
     private String mensagem;
     @ManyToOne
-    @JoinColumn(name = "usuario_origem_id",nullable = false)
+    @JoinColumn(name = "usuario_origem",nullable = false)
     private UsuarioModel usuarioOrigem;
     @ManyToOne
-    @JoinColumn(name = "usuario_destino_id",nullable = false)
+    @JoinColumn(name = "usuario_destino",nullable = false)
     private UsuarioModel usuarioDestino;
     private boolean visualizado;
     private LocalDateTime dataDeEnvio;
