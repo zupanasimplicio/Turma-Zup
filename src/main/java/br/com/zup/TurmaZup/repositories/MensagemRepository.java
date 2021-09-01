@@ -1,10 +1,7 @@
 package br.com.zup.TurmaZup.repositories;
 
-import br.com.zup.TurmaZup.chat.Chat;
 import br.com.zup.TurmaZup.models.MensagemModel;
 import org.springframework.data.repository.CrudRepository;
-
-import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;
 
 public interface MensagemRepository extends CrudRepository<MensagemModel,Integer> {
@@ -12,4 +9,5 @@ public interface MensagemRepository extends CrudRepository<MensagemModel,Integer
     List<MensagemModel> findAllByUsuarioDestinoEmailContains(String email);
 
 
+    Object findAllById(int idMesamgem);
 }
