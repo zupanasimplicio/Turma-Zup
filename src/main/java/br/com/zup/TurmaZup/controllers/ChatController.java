@@ -38,5 +38,10 @@ public class ChatController {
                 .map(mensagem -> modelMapper.map(mensagem, MensagemResumoDto.class)).collect(Collectors.toList());
         return mensagemResumoDtos;
     }
+    @GetMapping({"idMensagem"})
+    public MensagemModel exibirMensagemPorId(@PathVariable int idMensagem){
 
+        MensagemModel mensagem = mensagemService.exibirMesagemPorId(idMensagem);
+        return mensagem;
+    }
 }
