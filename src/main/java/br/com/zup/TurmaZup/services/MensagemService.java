@@ -1,13 +1,10 @@
 package br.com.zup.TurmaZup.services;
 
-import br.com.zup.TurmaZup.chat.Chat;
 import br.com.zup.TurmaZup.models.MensagemModel;
 import br.com.zup.TurmaZup.models.UsuarioModel;
 import br.com.zup.TurmaZup.repositories.MensagemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -33,7 +30,6 @@ public class MensagemService {
 
         return mensagemRepository.save(mensagem);
 
-
     }
 
     public List<MensagemModel> filtrarMengensPor(String emailUsuario, Boolean visualizado){
@@ -42,7 +38,11 @@ public class MensagemService {
         }if(visualizado != null){
             return mensagemRepository.findAllByVisualizado(visualizado);
         }
-
         return (List<MensagemModel>) mensagemRepository.findAll();
+
+    }
+    public MensagemModel exibirMesagemPorId(int idMesamgem){
+        return (MensagemModel) mensagemRepository.findAllById(idMesamgem);
     }
 }
+
