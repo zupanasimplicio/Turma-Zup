@@ -7,14 +7,14 @@ public class MensagemResumoDto {
 
     private int id;
     private String mensagem;
-    private LocalDate dataDeEnvio;
+    private LocalDateTime dataDeEnvio;
     private boolean visualizado;
 
     public MensagemResumoDto() {
 
     }
 
-    public MensagemResumoDto(int id, String mensagem, LocalDate dataDeEnvio, boolean visualizado) {
+    public MensagemResumoDto(int id, String mensagem, LocalDateTime dataDeEnvio, boolean visualizado) {
         super();
         this.id = id;
         this.mensagem = mensagem;
@@ -38,11 +38,11 @@ public class MensagemResumoDto {
         this.mensagem = mensagem;
     }
 
-    public LocalDate getDataDeEnvio() {
+    public LocalDateTime getDataDeEnvio() {
         return dataDeEnvio;
     }
 
-    public void setDataDeEnvio(LocalDate dataDeEnvio) {
+    public void setDataDeEnvio(LocalDateTime dataDeEnvio) {
         this.dataDeEnvio = dataDeEnvio;
     }
 
