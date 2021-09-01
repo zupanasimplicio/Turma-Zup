@@ -1,8 +1,7 @@
 package br.com.zup.TurmaZup.dtos;
 
-import br.com.zup.TurmaZup.chat.Chat;
 
-import javax.validation.Valid;
+import br.com.zup.TurmaZup.models.MensagemModel;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
@@ -24,8 +23,8 @@ public class CadastroChatDTO {
         this.chat = chat;
     }
 
-    public Chat converteDtoParaModel(){
-        Chat chat = new Chat();
+    public MensagemModel converteDtoParaModel(){
+        MensagemModel chat = new MensagemModel();
         chat.setMensagem(this.chat);
 
         return chat;
